@@ -1,6 +1,6 @@
 ## COOLCHAT69
 
-###### :cloud: a realtime web chat :cloud:
+###### :cloud: a realtime web chat, client :cloud:
 
 #### main features
  - Built with [webpack](https://webpack.js.org/)
