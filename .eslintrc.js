@@ -39,6 +39,7 @@ module.exports = {
     "react/prop-types": 0,
     "comma-dangle": ["error", "never"],
     "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 1
+    "react-hooks/exhaustive-deps": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   }
 };
