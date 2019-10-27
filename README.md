@@ -2,13 +2,9 @@
 
 ###### :cloud: a realtime web chat, client :cloud:
 
-#### main features
- - Built with [webpack](https://webpack.js.org/)
- - Hot Module Replacement (HMR)
- - React Hot Loader
- - ESLint
- - DevServer (webpack-dev-server)
- - Source Maps
+#### prerequisites
+- git
+- node (npm)
 
 #### download
 ```
@@ -28,4 +24,9 @@ npm start
 #### build for production
 ```
 npm run build
+```
+
+#### lint
+```
+npm run lint
 ```

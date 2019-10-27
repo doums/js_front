@@ -35,7 +35,10 @@ module.exports = {
       "error",
       "never"
     ],
-    "no-console": "warn",
+    "arrow-parens": ["error", "as-needed"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "space-before-function-paren": ["error", "always"],
+    "no-console": "off",
     "react/prop-types": 0,
     "comma-dangle": ["error", "never"],
     "react-hooks/rules-of-hooks": 2,

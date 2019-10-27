@@ -1,3 +1,64 @@
-.hello {
-  color: royalblue;
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    outline: none !important;
+    font-weight: normal;
+}
+
+input {
+    font-size: 14px;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: default;
+}
+
+a:link {
+    text-decoration: none;
+    outline: none;
+}
+
+a:visited {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    outline: none;
+}
+
+a:active {
+    text-decoration: none;
+    outline: none;
+}
+
+::placeholder {
+    opacity: 1;
+    color: #777;
+}
+
+.overflow-wrap {
+    overflow-wrap: break-word;
+}
+
+.miw-px-150 {
+    min-width: 150px;
+}
+
+.miw-px-100 {
+    min-width: 100px;
 }
