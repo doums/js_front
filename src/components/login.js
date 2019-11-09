@@ -16,13 +16,22 @@ export default function Login (props) {
   const [username, setUsername] = useState('')
   const client = useApolloClient()
   const { t } = useTranslation()
+
+  const errorMessage = graphQLError => {
+    if (graphQLError === 'GraphQL error: Invalid email') {
+      setError(t('emailError'))
+    } else if (graphQLError === 'GraphQL error: Invalid password') {
+      setError(t('passwordError'))
+    }
+  }
+
   const [signIn, { loading: signInLoading }] = useMutation(SIGN_IN, {
     onCompleted: async ({ signIn: { token } }) => {
       localStorage.setItem(AUTH_TOKEN, token)
       await client.clearStore()
       history.push('/')
     },
-    onError: e => setError(e.message),
+    onError: e => errorMessage(e.message),
     variables: {
       email,
       password
@@ -34,7 +43,7 @@ export default function Login (props) {
       await client.clearStore()
       history.push('/')
     },
-    onError: e => setError(e.message),
+    onError: e => errorMessage(e.message),
     variables: {
       email,
       username,

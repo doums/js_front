@@ -1,6 +1,11 @@
 {
   "translation": {
     "password": "password",
-    "logout": "logout"
+    "logout": "logout",
+    "emailError": "Invalid email",
+    "passwordError": "Invalid password",
+    "name": "name",
+    "cancel": "cancel",
+    "createTalk": "new talk"
   }
 }

@@ -23,3 +23,43 @@ export const DELETE_POST = gql`
         }
     }
 `
+
+export const CREATE_TALK = gql`
+    mutation CreateTalk($name: String!, $description: String!) {
+        createTalk(name: $name, description: $description) {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+            activeUsers {
+                id
+            }
+            posts {
+                id
+            }
+        }
+    }
+`
+
+export const JOIN_TALK = gql`
+    mutation JoinTalk($id: ID!) {
+        joinTalk(id: $id) {
+            id
+            activeTalks {
+                id
+            }
+        }
+    }
+`
+
+export const LEAVE_TALK = gql`
+    mutation LeaveTalk {
+        leaveTalk {
+            id
+            activeTalks {
+                id
+            }
+        }
+    }
+`
