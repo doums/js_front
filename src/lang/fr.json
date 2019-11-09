@@ -6,6 +6,7 @@
     "passwordError": "mot de passe invalide",
     "name": "nom",
     "cancel": "retour",
-    "createTalk": "nouveau \"talk\""
+    "createTalk": "nouveau \"talk\"",
+    "started": "créée"
   }
 }

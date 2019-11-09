@@ -6,6 +6,7 @@
     "passwordError": "Invalid password",
     "name": "name",
     "cancel": "cancel",
-    "createTalk": "new talk"
+    "createTalk": "new talk",
+    "started": "started"
   }
 }

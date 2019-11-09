@@ -46,7 +46,7 @@ export const JOIN_TALK = gql`
     mutation JoinTalk($id: ID!) {
         joinTalk(id: $id) {
             id
-            activeTalks {
+            activeTalk {
                 id
             }
         }
@@ -57,7 +57,7 @@ export const LEAVE_TALK = gql`
     mutation LeaveTalk {
         leaveTalk {
             id
-            activeTalks {
+            activeTalk {
                 id
             }
         }

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import moment from 'moment'
+import { Link, useHistory } from 'react-router-dom'
 import Spinner from './spinner'
 import { TALKS } from '../queries'
 
@@ -15,22 +16,19 @@ const TalkList = () => {
     return <div>error</div>
   }
 
-  const joinTalk = id => {
-
-  }
-
   return (
     <div>
       {
         data.talks.map(talk => (
-          <div
+          <Link
+            className='link dim db moon-gray pointer'
+            to={`/talk/${talk.id}`}
             key={talk.id}
-            onClick={() => joinTalk(talk.id)}
           >
             {talk.name}
             {talk.activeUsers.length}
             {moment(talk.createdAt).fromNow()}
-          </div>
+          </Link>
         ))
       }
     </div>
