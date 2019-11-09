@@ -1,5 +1,5 @@
 import { hot } from 'react-hot-loader/root'
-import React, { useEffect } from 'react'
+import React from 'react'
 import 'tachyons/css/tachyons.min.css'
 import '../style.css'
 import {
@@ -9,14 +9,13 @@ import {
   useHistory,
   useLocation
 } from 'react-router-dom'
-import { useApolloClient, useMutation } from '@apollo/react-hooks'
+import { useApolloClient } from '@apollo/react-hooks'
 import { useTranslation } from 'react-i18next'
 import * as moment from 'moment'
 import { AUTH_TOKEN } from '../constants'
 import Login from './login'
 import NotFound from './notFound'
 import Home from './home'
-import { LEAVE_TALK } from '../mutations'
 import CreateTalk from './createTalk'
 import Talk from './talk'
 
@@ -31,10 +30,6 @@ const App = () => {
     localStorage.removeItem(AUTH_TOKEN)
     history.push('/login')
   }
-
-  const [leaveTalk] = useMutation(LEAVE_TALK)
-
-  useEffect(() => () => leaveTalk(), [leaveTalk])
 
   moment.locale(i18n.language)
 

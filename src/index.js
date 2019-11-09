@@ -11,6 +11,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './components/app'
 import { AUTH_TOKEN } from './constants'
 import './i18n'
+import { io, IoContext } from './context'
 
 const env = process.env.NODE_ENV
 
@@ -44,7 +45,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
-      <App />
+      <IoContext.Provider value={io}>
+        <App />
+      </IoContext.Provider>
     </BrowserRouter>
   </ApolloProvider>,
   document.getElementById('root')

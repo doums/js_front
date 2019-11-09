@@ -16,6 +16,21 @@ export const SIGN_UP = gql`
     }
 `
 
+export const CREATE_POST = gql`
+    mutation CreatePost($text: String!, $talkId: ID!) {
+        createPost(text: $text, talkId: $talkId) {
+            id
+            text
+            author {
+                id
+                username
+            }
+            createdAt
+            updatedAt
+        }
+    }
+`
+
 export const DELETE_POST = gql`
     mutation DeletePost($id: ID!) {
         deletePost(id: $id) {
@@ -32,32 +47,7 @@ export const CREATE_TALK = gql`
             description
             createdAt
             updatedAt
-            activeUsers {
-                id
-            }
             posts {
-                id
-            }
-        }
-    }
-`
-
-export const JOIN_TALK = gql`
-    mutation JoinTalk($id: ID!) {
-        joinTalk(id: $id) {
-            id
-            activeTalk {
-                id
-            }
-        }
-    }
-`
-
-export const LEAVE_TALK = gql`
-    mutation LeaveTalk {
-        leaveTalk {
-            id
-            activeTalk {
                 id
             }
         }

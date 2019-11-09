@@ -20,7 +20,7 @@ export const TALKS = gql`
             id
             name
             createdAt
-            activeUsers {
+            posts {
                 id
             }
         }
@@ -38,15 +38,28 @@ export const TALK = gql`
             posts {
                 id
                 text
-                createdAt
-                updatedAt
                 author {
+                    id
                     username
                 }
+                createdAt
+                updatedAt
             }
-            activeUsers {
+        }
+    }
+`
+
+export const POSTS_BY_TALK = gql`
+    query PostByTalk($talkId: ID!){
+        postsByTalk(talkId: $talkId) {
+            id
+            text
+            author {
                 id
+                username
             }
+            createdAt
+            updatedAt
         }
     }
 `
