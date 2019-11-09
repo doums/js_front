@@ -8,8 +8,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { BrowserRouter } from 'react-router-dom'
-import App from './component/app'
+import App from './components/app'
 import { AUTH_TOKEN } from './constants'
+import './i18n'
 
 const env = process.env.NODE_ENV
 

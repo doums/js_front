@@ -10,6 +10,7 @@ import {
   useLocation
 } from 'react-router-dom'
 import { useApolloClient } from '@apollo/react-hooks'
+import { useTranslation } from 'react-i18next'
 import { AUTH_TOKEN } from '../constants'
 import Login from './login'
 import NotFound from './notFound'
@@ -19,6 +20,7 @@ const App = () => {
   const client = useApolloClient()
   const history = useHistory()
   const { pathname } = useLocation()
+  const { t } = useTranslation()
   const logout = async () => {
     await client.clearStore()
     localStorage.removeItem(AUTH_TOKEN)
@@ -38,7 +40,7 @@ const App = () => {
                 className='sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray grow'
                 onClick={logout}
               >
-                logout
+                {t('logout')}
               </button>
               <Link to='/' className='dib'>
                 <div className='sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray grow'>

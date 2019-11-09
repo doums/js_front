@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useMutation, useApolloClient, useQuery } from '@apollo/react-hooks'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { SIGN_IN, SIGN_UP } from '../mutations'
 import { AM_I_AUTH } from '../queries'
 import Spinner from './spinner'
@@ -14,6 +15,7 @@ export default function Login (props) {
   const [error, setError] = useState('')
   const [username, setUsername] = useState('')
   const client = useApolloClient()
+  const { t } = useTranslation()
   const [signIn, { loading: signInLoading }] = useMutation(SIGN_IN, {
     onCompleted: async ({ signIn: { token } }) => {
       localStorage.setItem(AUTH_TOKEN, token)
@@ -62,11 +64,11 @@ export default function Login (props) {
     return email !== '' && password !== ''
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (mod === 'register') {
-      signUp()
+      await signUp()
     } else {
-      signIn()
+      await signIn()
     }
   }
 
@@ -95,7 +97,7 @@ export default function Login (props) {
         className='ba b--white-80 mb2 gray athelas pa3 w-30-ns w-60-m w-100 border-box'
         value={password}
         onChange={e => setPassword(e.target.value)}
-        placeholder='password'
+        placeholder={t('password')}
         type='password'
       />
       <button
