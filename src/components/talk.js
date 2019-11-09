@@ -43,6 +43,7 @@ export default function Talk () {
         refetch()
       }
     })
+    return () => io.off('post_created')
   }, [io, refetch, talkId])
 
   const onCreatePost = () => {

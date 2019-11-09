@@ -9,7 +9,7 @@ import { HttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { BrowserRouter } from 'react-router-dom'
 import App from './components/app'
-import { AUTH_TOKEN } from './constants'
+import { AUTH_TOKEN, HOST } from './constants'
 import './i18n'
 import { io, IoContext } from './context'
 
@@ -34,7 +34,7 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const httpLink = new HttpLink({
-  uri: env === 'development' ? 'http://localhost:4000' : ''
+  uri: HOST
 })
 
 const client = new ApolloClient({
