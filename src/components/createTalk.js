@@ -66,21 +66,21 @@ export default function CreateTalk () {
   const onDescriptionChange = e => {
     setDescription(e.target.value)
   }
-  console.log(isValid)
 
   return (
-    <div className='flex flex-column items-center'>
+    <div className='flex flex-column items-center h-100 mt6'>
       <input
         className='ba b--white-80 mb2 gray athelas pa3 w-40-ns w-60-m w-100 border-box measure'
         value={name}
         onChange={onNameChange}
         placeholder={t('name')}
       />
-      <input
-        className='ba b--white-80 mb2 gray athelas pa3 w-40-ns w-60-m w-100 border-box measure'
+      <textarea
+        className='ba bg-near-black b--white-80 mb2 gray f6 athelas pa3 w-40-ns w-60-m w-100 border-box measure'
         value={description}
         onChange={onDescriptionChange}
         placeholder='description'
+        rows={4}
       />
       <div className='flex'>
         <button

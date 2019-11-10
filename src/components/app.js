@@ -34,13 +34,13 @@ const App = () => {
   moment.locale(i18n.language)
 
   return (
-    <div className='h-100 pl3'>
+    <div className='h-100 ph3'>
       <Route path='/signIn' render={() => <Login />} />
       <Route path='/signUp' render={() => <Login mod='register' />} />
       {
         pathname !== '/signIn' && pathname !== '/signUp'
         && (
-          <div>
+          <div className='h-100'>
             <div className='flex items-center justify-end pa2 dark-gray'>
               <button
                 type='button'

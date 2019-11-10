@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useMutation, useQuery } from '@apollo/react-hooks'
 import { useHistory, useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import moment from 'moment'
 import { AM_I_AUTH, TALK } from '../queries'
 import Spinner from './spinner'
@@ -13,7 +12,6 @@ export default function Talk () {
   const [text, setText] = useState('')
 
   const { id: talkId } = useParams()
-  const { t } = useTranslation()
   const io = useIo()
 
   const { loading: authLoading, error: authError, data: authData } = useQuery(AM_I_AUTH)
@@ -94,37 +92,47 @@ export default function Talk () {
 
   return (
     <div>
-      <div>
-        { data.talk.name }
+      <div className='mb3'>
+        <div className='f3 lh-copy db moon-gray'>
+          {data.talk.name}
+        </div>
+        <div className='f5 lh-copy mv1'>
+          { data.talk.description }
+        </div>
+        <div className='f6 lh-copy sans-serif i'>
+          {`${data.talk.posts.length} post${data.talk.posts.length > 1 ? 's' : ''}, ${moment(data.talk.createdAt).fromNow()}`}
+        </div>
       </div>
-      <div>
-        { data.talk.description }
-      </div>
-      <div>
-        { `${t('started')} ${moment(data.talk.createdAt).fromNow()}` }
-      </div>
-      {
-        data.talk.posts.map(post => (
-          <div key={post.id}>
-            {post.text}
+      <div className='bt b--white-80 mv3' />
+      <div className='flex flex-column'>
+        {
+          data.talk.posts.map(post => (
+            <div
+              key={post.id}
+            >
+              {post.text}
+            </div>
+          ))
+        }
+        <div className='flex flex-column'>
+          <textarea
+            className='ba bg-near-black f6 b--white-80 mb2 gray athelas pa3 w-40-ns w-60-m w-100 border-box measure'
+            value={text}
+            onChange={e => setText(e.target.value)}
+            placeholder='Aa'
+            rows={4}
+          />
+          <div>
+            <button
+              type='button'
+              className={`sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray ${text && 'grow'}`}
+              onClick={onCreatePost}
+              disabled={!text}
+            >
+              ok
+            </button>
           </div>
-        ))
-      }
-      <div>
-        <input
-          className='ba b--white-80 mb2 gray athelas pa3 w-40-ns w-60-m w-100 border-box measure'
-          value={text}
-          onChange={e => setText(e.target.value)}
-          placeholder='Aa'
-        />
-        <button
-          type='button'
-          className={`sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray ${text && 'grow'}`}
-          onClick={onCreatePost}
-          disabled={!text}
-        >
-          ok
-        </button>
+        </div>
       </div>
     </div>
   )

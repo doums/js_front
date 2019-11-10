@@ -40,13 +40,19 @@ const TalkList = () => {
     <div>
       {
         data.talks.map(talk => (
-          <Link
-            className='link dim db moon-gray pointer'
-            to={`/talk/${talk.id}`}
-            key={talk.id}
-          >
-            {`${talk.name} ${talk.posts.length} ${moment(talk.createdAt).fromNow()}`}
-          </Link>
+          <div key={talk.id} className='mb3'>
+            <Link
+              className='link db moon-gray'
+              to={`/talk/${talk.id}`}
+            >
+              <span className='f3 lh-copy dim pointer'>
+                {talk.name}
+              </span>
+            </Link>
+            <div className='f6 lh-copy sans-serif i'>
+              {`${talk.posts.length} post${talk.posts.length > 1 ? 's' : ''}, ${moment(talk.createdAt).fromNow()}`}
+            </div>
+          </div>
         ))
       }
     </div>

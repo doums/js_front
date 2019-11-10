@@ -26,8 +26,10 @@ const Home = () => {
 
   return (
     <div>
-      CoolChat
-      <Link to='/createTalk' className='dib mb1 mr3'>
+      <div className='f-subheadline lh-title'>
+        tak
+      </div>
+      <Link to='/createTalk' className='dib mb1 mr3 mb3'>
         <div className='sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray grow'>
           {t('createTalk')}
         </div>
