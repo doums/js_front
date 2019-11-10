@@ -8,6 +8,8 @@
     "cancel": "retour",
     "createTalk": "nouveau \"talk\"",
     "started": "créée",
-    "by": "par"
+    "by": "par",
+    "registerLink": "créer un compte",
+    "loginLink": "se connecter"
   }
 }

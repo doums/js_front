@@ -28,7 +28,7 @@ const App = () => {
   const logout = async () => {
     await client.clearStore()
     localStorage.removeItem(AUTH_TOKEN)
-    history.push('/login')
+    history.push('/signIn')
   }
 
   moment.locale(i18n.language)

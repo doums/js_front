@@ -10,7 +10,7 @@ i18n
   .use(LanguageDetector)
   .init({
     fallbackLng: 'en',
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     resources,
     keySeparator: false, // we do not use keys in form messages.welcome
     interpolation: {

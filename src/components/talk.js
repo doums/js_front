@@ -7,6 +7,7 @@ import Spinner from './spinner'
 import { CREATE_POST } from '../mutations'
 import { OPTIMISTIC_ID } from '../constants'
 import useIo from '../hooks/useIo'
+import PostList from './postList'
 
 export default function Talk () {
   const [text, setText] = useState('')
@@ -93,8 +94,8 @@ export default function Talk () {
   return (
     <div>
       <div className='mb3'>
-        <div className='f3 lh-copy db moon-gray'>
-          {data.talk.name}
+        <div className='f3 lh-copy db moon-gray sans-serif tracked'>
+          {data.talk.name.toUpperCase()}
         </div>
         <div className='f5 lh-copy mv1'>
           { data.talk.description }
@@ -105,27 +106,20 @@ export default function Talk () {
       </div>
       <div className='bt b--white-80 mv3' />
       <div className='flex flex-column'>
-        {
-          data.talk.posts.map(post => (
-            <div
-              key={post.id}
-            >
-              {post.text}
-            </div>
-          ))
-        }
-        <div className='flex flex-column'>
+        <PostList posts={data.talk.posts} userId={authData.amIAuth.me.id} />
+        <div className='flex flex-column self-center'>
           <textarea
-            className='ba bg-near-black f6 b--white-80 mb2 gray athelas pa3 w-40-ns w-60-m w-100 border-box measure'
+            className='ba bg-near-black f6 b--white-80 mb2 gray athelas pa3 border-box measure'
             value={text}
             onChange={e => setText(e.target.value)}
             placeholder='Aa'
             rows={4}
+            cols={100}
           />
-          <div>
+          <div className='self-end'>
             <button
               type='button'
-              className={`sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray ${text && 'grow'}`}
+              className={`sans-serif f6 ba pa3 b--white-80 bg-transparent gray ${text && 'grow'}`}
               onClick={onCreatePost}
               disabled={!text}
             >

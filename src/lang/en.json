@@ -8,6 +8,8 @@
     "cancel": "cancel",
     "createTalk": "new talk",
     "started": "started",
-    "by": "by"
+    "by": "by",
+    "registerLink": "sign-up",
+    "loginLink": "sign-in"
   }
 }

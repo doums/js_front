@@ -62,3 +62,7 @@ a:active {
 .miw-px-100 {
     min-width: 100px;
 }
+
+.chat {
+    max-height: 500px;
+}

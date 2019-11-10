@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useMutation, useApolloClient, useQuery } from '@apollo/react-hooks'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SIGN_IN, SIGN_UP } from '../mutations'
 import { AM_I_AUTH } from '../queries'
@@ -109,14 +109,27 @@ export default function Login (props) {
         placeholder={t('password')}
         type='password'
       />
-      <button
-        className={`sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray ${isFormValid() && 'grow'}`}
-        onClick={handleSubmit}
-        disabled={!isFormValid() || signInLoading || signUpLoading}
-        type='button'
-      >
-        ok
-      </button>
+      <div>
+        {
+          mod === 'register' ? (
+            <Link to='/signIn' className='sans-serif f6 i mr3 mb3 lh-copy dim moon-gray pointer'>
+              {t('loginLink')}
+            </Link>
+          ) : (
+            <Link to='/signUp' className='sans-serif f6 i mr3 mb3 lh-copy dim moon-gray pointer'>
+              {t('registerLink')}
+            </Link>
+          )
+        }
+        <button
+          className={`sans-serif f6 ba pa3 b--white-80 bg-transparent mr2 gray ${isFormValid() && 'grow'}`}
+          onClick={handleSubmit}
+          disabled={!isFormValid() || signInLoading || signUpLoading}
+          type='button'
+        >
+          ok
+        </button>
+      </div>
     </div>
   )
 }
