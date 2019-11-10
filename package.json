@@ -1,7 +1,7 @@
 {
-  "name": "fresh_boilerplate",
+  "name": "tak",
   "version": "1.0.0",
-  "description": "Fresh and minimalist webpack boilerplate",
+  "description": "minimalist realtime chat",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
