@@ -22,6 +22,8 @@ export default function Login (props) {
       setError(t('emailError'))
     } else if (graphQLError === 'GraphQL error: Invalid password') {
       setError(t('passwordError'))
+    } else if (graphQLError === 'GraphQL error: provide a valid email address') {
+      setError(t('emailError'))
     }
   }
 
