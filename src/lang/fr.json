@@ -5,6 +5,7 @@
     "emailError": "email invalide",
     "passwordError": "mot de passe invalide",
     "name": "nom",
+    "username": "pseudo",
     "cancel": "retour",
     "createTalk": "nouveau \"talk\"",
     "started": "créée",

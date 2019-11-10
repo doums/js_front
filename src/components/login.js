@@ -92,7 +92,7 @@ export default function Login (props) {
             className='ba b--white-80 mb2 gray athelas pa3 w-30-ns w-60-m w-100 border-box'
             value={username}
             onChange={e => setUsername(e.target.value)}
-            placeholder='username'
+            placeholder={t('username')}
           />
         )
       }

@@ -5,6 +5,7 @@
     "emailError": "Invalid email",
     "passwordError": "Invalid password",
     "name": "name",
+    "username": "username",
     "cancel": "cancel",
     "createTalk": "new talk",
     "started": "started",
