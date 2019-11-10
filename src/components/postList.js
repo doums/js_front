@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export default function PostList ({ posts, userId }) {
   return (
-    <div className='flex flex-column chat overflow-auto'>
+    <div className='flex flex-column chat overflow-auto w-100 mw7-l mw8-m'>
       {
         posts.map(post => (
           <div

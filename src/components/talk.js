@@ -105,7 +105,7 @@ export default function Talk () {
         </div>
       </div>
       <div className='bt b--white-80 mv3' />
-      <div className='flex flex-column'>
+      <div className='flex flex-column items-center'>
         <PostList posts={data.talk.posts} userId={authData.amIAuth.me.id} />
         <div className='flex flex-column self-center'>
           <textarea
